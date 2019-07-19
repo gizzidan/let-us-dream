@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <script src="app.js" async></script>
+    <%= t.include("partials/_analytics.html") %>
+    <table>
+        <thead>
+          <tr>
+            <th>Name
+            <th>Company
+            <th>Salary
+        <tbody>
+          <% csv.ceoData.forEach(function(ceo) { %>
+          <tr>
+            <td><%= ceo.name %>
+            <td><%= ceo.company %>
+            <td><%= t.formatMoney(ceo.salary) %>
+          <% }); %>
+      </table>
+  </body>
+</html>
